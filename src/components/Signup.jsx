@@ -46,6 +46,11 @@ const handleSubmit =async (e) =>{
     setPassword("");
     setPhone("");
 
+     setTimeout(() => {
+    setSuccess("");
+  }, 5000);
+  // creates a time out for the page to be default after 5 secs
+
   }
   catch(error){
     // set the loading hook back to default 
