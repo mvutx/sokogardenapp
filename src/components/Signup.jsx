@@ -40,7 +40,7 @@ const handleSubmit =async (e) =>{
     // JUST INCASE EVERYTHING GOES ON WELL UPDATE THE SUCCES HOOK WITH A MESSAGE 
     setSuccess(response.data.message)
 
-    //clear your hooks
+    //clear your hooks 
     setUsernme("");
     setEmail("");
     setPassword("");
@@ -111,7 +111,7 @@ const handleSubmit =async (e) =>{
           <p className='Last'> Already have an account? <Link to={'/signin'}>Sign in</Link></p>
         </form>
       </div>
-    </div>
+    </div> 
   )
 }
 

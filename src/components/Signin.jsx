@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signin = () => {
 
@@ -14,7 +14,7 @@ const Signin = () => {
   const [error, setError] = useState("");
 
   // below we have the useNavigate hook hook to redirect us to another page on success login/signin
-  const navigate = useNavigate()
+  const navigate = useNavigate() 
 
   // below is the funtion to handle the signin action
   const handlesubmit  = async (e) =>{
@@ -42,6 +42,10 @@ const Signin = () => {
       if(response.data.user){
         // if user is there, definately the details entered during signin are correct
         // setSuccess("Login successful")
+
+        // store user details in local storage
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        
         // if it is successful, let a person get redirected another page
         navigate("/");
       }
@@ -58,6 +62,7 @@ const Signin = () => {
       setError("Oops, something went wrong. Try again...")
     }
   }
+  
 
 
   return (
@@ -90,7 +95,11 @@ const Signin = () => {
 
             <input type="submit"
             value="Signin"
-            className='btn btn-primary' />
+            className='btn btn-primary' /> <br /> <br />
+            Dont  have an account?
+            <Link to={'/signup'}>Signup</Link>
+    
+
           </form>
         </div>
     </div>
