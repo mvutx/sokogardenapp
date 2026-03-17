@@ -32,7 +32,7 @@ const Addproducts = () => {
       formdata.append("product_photo", product_photo);
 
       // interact with axios to help you use themethod post 
-      const response = await axios.post("https://kbenkamotho.alwaysdata.net/api/add_product", formdata)
+      const response = await axios.post("https://kivuti.alwaysdata.net/api/add_product", formdata)
 
       // set the loading hook back to default 
       setLoading(false)
@@ -45,6 +45,10 @@ const Addproducts = () => {
       setProductDescription("");
       setProductCost("");
       setProductPhoto("");
+      e.target.reset()
+           setTimeout(() => {
+      setSuccess("");
+  }, 5000);
 
     }
     catch(error){
@@ -99,8 +103,7 @@ const Addproducts = () => {
           <input type="file"
           className='form-control'
           required 
-          accept='image/*
-          ' onChange={(e) => setProductPhoto(e.target.files[0])}/> <br />
+          accept='image/*' onChange={(e) => setProductPhoto(e.target.files[0])}/> <br />
 
 
           <input type="submit"
